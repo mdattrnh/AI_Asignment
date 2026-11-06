@@ -71,14 +71,11 @@ class EightPuzzle(SearchProblem):
 
     def heuristic(self, state):
         distance = 0
-
         for x in range(3):
             for y in range(3):
                 number = state[x][y]
-
                 if number == 0:
                     continue
-
                 for goal_x in range(3):
                     for goal_y in range(3):
                         if GOAL[goal_x][goal_y] == number:
@@ -86,10 +83,7 @@ class EightPuzzle(SearchProblem):
                                 abs(x - goal_x)
                                 + abs(y - goal_y)
                             )
-
         return distance
-
-
 def print_board(state):
     for row in state:
         print(" ".join(
@@ -97,8 +91,6 @@ def print_board(state):
             for n in row
         ))
     print()
-
-
 def solve(name, algorithm):
     problem = EightPuzzle(initial_state=INITIAL)
 
@@ -113,11 +105,9 @@ def solve(name, algorithm):
             problem,
             graph_search=True
         )
-
     if result is None:
         print("Khong tim thay loi giai")
         return
-
     print("\nThuat toan:", name)
     print("So buoc:", len(result.path()) - 1)
     print("Chi phi:", result.cost)
@@ -125,8 +115,6 @@ def solve(name, algorithm):
     for step, (action, state) in enumerate(result.path()):
         print(f"Buoc {step}: {action or 'START'}")
         print_board(state)
-
-
 def main():
     algorithms = {
         "1": ("BFS", breadth_first),
@@ -154,7 +142,6 @@ def main():
         solve(name, algorithm)
     else:
         print("Lua chon khong hop le")
-
 
 if __name__ == "__main__":
     main()

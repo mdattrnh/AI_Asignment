@@ -25,10 +25,8 @@ def dfs(graph, start, goal):
     while fringe:
         node, path, cost = fringe.pop()
         order.append(node)
-
         if node == goal:
             return path, cost, order
-
         for neighbor, weight in reversed(graph.get(node, [])):
             if neighbor not in path:
                 fringe.append((
@@ -36,9 +34,7 @@ def dfs(graph, start, goal):
                     path + [neighbor],
                     cost + weight
                 ))
-
     return None, None, order
-
 #UCS
 from heapq import heappop, heappush
 from itertools import count
