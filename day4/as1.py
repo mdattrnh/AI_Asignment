@@ -68,7 +68,6 @@ class NQueenGA(SearchProblem):
             print(line)
         print()
 
-
 if __name__ == "__main__":
     random.seed(42)
     n = 8
